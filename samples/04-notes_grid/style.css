@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+}
+
+.notes-app{
+	box-shadow:1px 1px 5px black;
+	max-width:1200px;
+	margin:0 auto;
+}
+
+.notes-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.note{
+	background-color: yellow;
+	flex-basis:250px;
+	flex-grow: 1;
+	max-height: 300px;
+	overflow: hidden;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	border-radius:2px;
+	margin:10px;
+	padding:10px;
+}

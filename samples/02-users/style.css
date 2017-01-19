@@ -1,0 +1,35 @@
+.contact-panel {
+	width:300px;
+	margin: 50px auto;
+}
+
+.contact-panel__search{
+	width:100%;
+	padding:5px;
+}
+
+.contact-panel__list{
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+
+.contact__foto{
+	display: block;
+	float:left;
+	border-radius:50%;
+}
+
+.contact__wrapper{
+	margin-left:60px;
+
+}
+
+.contact__name{
+	font-weight:bold;
+}
+
+.contact{
+	padding:10px;
+	border-bottom:1px solid black;
+}
