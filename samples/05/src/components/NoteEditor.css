@@ -1,0 +1,41 @@
+
+.note-editor{
+	position: relative;
+	max-width: 600px;
+	margin:0 auto;
+}
+
+.note-editor__text-field{
+	width:100%;
+	padding:20px 20px 80px 20px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+	border-radius:2px;
+	margin-bottom:20px;
+}
+
+.note-editor__color-picker{
+	position:absolute;
+	bottom:45px;
+	right:130px;
+}
+
+.note-editor__btn-send{
+	position: absolute;
+	right:20px;
+	bottom:40px;
+	padding: 10px 30px;
+	background-color: greenyellow;
+	font-weight:bold;
+	border-radius: 40px;
+	border:none;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+}
+
+.note-editor__btn-send:hover,
+.note-editor__btn-send:focus{
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.2),0px 1px 5px rgba(0,0,0,0.4);
+}
+
+.note-editor__btn-send:active{
+	box-shadow: inset 0px 1px 5px rgba(0,0,0,0.4);
+}
