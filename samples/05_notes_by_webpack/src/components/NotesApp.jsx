@@ -1,5 +1,6 @@
 var React = require('react');
-
+var NoteEditor = require('./NoteEditor.jsx');
+var NotesGrid = require('./NotesGrid.jsx');
 require('./NotesApp.css');
 
 
