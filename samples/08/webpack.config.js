@@ -25,6 +25,10 @@ module.exports = {
                 exclude: [/node_modules/, /public/]
             },
             {
+                test: /\.scss$/,
+                loader: 'style!css!sass?sourceMap'
+            },
+            {
                 test: /\.gif$/,
                 loader: "url-loader?limit=10000&mimetype=image/gif"
             },

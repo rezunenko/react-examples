@@ -3,6 +3,8 @@ import React from 'react';
 
 import Store from './store';
 
+import './main.scss';
+
 const initialState = {
   count: 0
 }
@@ -62,14 +64,14 @@ class Counter extends React.Component{
 
   render (){
     return (
-      <div>
-        <div>
+      <div className="counter">
+        <div className="counter__display">
           {store.state.count}
         </div>
-        <div>
-          <input type="button" value="-" onClick={this.decrement}/>
-          <input type="button" value="R" onClick={this.reset}/>
-          <input type="button" value="+" onClick={this.increment}/>
+        <div className="counter__controls">
+          <input type="button" value="-" onClick={this.decrement} className="counter__btn"/>
+          <input type="button" value="R" onClick={this.reset} className="counter__btn"/>
+          <input type="button" value="+" onClick={this.increment} className="counter__btn"/>
         </div>
       </div>
     )

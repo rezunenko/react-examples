@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background-color: #000033;
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.counter{
+  &__display {
+    font-size: 256px;
+    font-family: Roboto, Segoe, Arial;
+  };
+
+  &__controls {
+      display: inline-block;
+  };
+
+  &__btn {
+    background-color: #CC33CC;
+    border: none;
+
+    padding: 20px 80px;
+
+    font-family: Roboto, Segoe, Arial;
+    font-size: 64px;
+
+    margin: 0 10px;
+
+    &:hover {
+      border-bottom:2px solid white;
+    };
+
+    &:active {
+      box-shadow: inset 0 0 10px white;
+    };
+  };
+}
