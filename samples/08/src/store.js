@@ -1,33 +1,46 @@
+export function createStore(reducer, initialState) {
+  let state = initialState;
+  let callbacks = [];
 
-class Store {
-  constructor(updateState, state) {
-    this._state = state;
-    this._updateState = updateState;
-    this._callbacks = [];
+  const getState = () => state;
+
+  const dispatch = action => {
+    state = reducer(state, action);
+    callbacks.forEach(callback => callback());
   }
 
-  get state() {
-    return this._state;
+  const subscribe = callback => {
+    callbacks.push(callback);
+    return () => callbacks.filter(item => item !== callback);
   }
 
-  subscribe(callback) {
-    this._callbacks.push(callback);
-    return () => this._callbacks = this._callbacks.filter(item => item !== callback);
-  }
+  // вывод объекта состояния при первой отрисовки. Если не указать, то выдаст ошибки, так как при обращении к getState не найдет значение.
+  dispatch({});
 
-  update(action) {
-    this._state = this._updateState(this._state, action);
-    this._callbacks.forEach(callback => callback());
-  }
+  return { getState, dispatch, subscribe };
 }
 
-
-export default Store;
+// class Store {
+//   constructor(updateState, state) {
+//     this._state = state;
+//     this._updateState = updateState;
+//     this._callbacks = [];
+//   }
 //
-// const unsubscribe = store.subscribe(() => console.log('State changed', store.state));
-// const unsubscribe2 = store.subscribe(() => console.log('State changed new', store.state));
+//   get state() {
+//     return this._state;
+//   }
 //
-// store.update(incrementAction);
-// store.update(decrementAction);
+//   subscribe(callback) {
+//     this._callbacks.push(callback);
+//     return () => this._callbacks = this._callbacks.filter(item => item !== callback);
+//   }
 //
-// store.update({});
+//   update(action) {
+//     this._state = this._updateState(this._state, action);
+//     this._callbacks.forEach(callback => callback());
+//   }
+// }
+//
+//
+// export default Store;
