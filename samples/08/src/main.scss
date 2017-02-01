@@ -17,6 +17,17 @@ body {
       display: inline-block;
   };
 
+  &__input {
+    margin-top:20px;
+    background: inherit;
+    border:none;
+    color:white;
+    font-family: Roboto, Segoe, Arial;
+    font-size: 64px;
+    text-align: center;
+    outline: none;
+  };
+
   &__btn {
     background-color: #CC33CC;
     border: none;
