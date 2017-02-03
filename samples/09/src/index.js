@@ -20,7 +20,8 @@ function playList(state = initialState, action) {
   return state;
 }
 
-const store = new createStore(playList);
+//  __REDUX_DEVTOOLS_EXTENSION__  для работы отладчика Redux
+const store = new createStore(playList, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <Provider store={store}>
