@@ -8,7 +8,6 @@ class App extends React.Component {
     this.trackInput.value="";
   }
   render() {
-    console.log(this.props.testStore);
     return (
       <div className="playlist">
         <h1>Hello, {this.props.name}</h1>
@@ -16,7 +15,7 @@ class App extends React.Component {
         <input type="button" className="playlist__btn-add" value="Добавить"  onClick={this.addTrack.bind(this)}/>
         <ul className="playlist__list">
           {
-            this.props.testStore.map((track,index) => {
+            this.props.tracks.map((track,index) => {
               return <li key={index}>{track}</li>;
             })
           }
@@ -28,7 +27,7 @@ class App extends React.Component {
 
 export default connect(
   state => ({
-    testStore: state
+    tracks: state.tracks
   }),
   dispatch => ({
     onAddTrack: (trackName) => {
