@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import {getTracks} from '../actions/tracks.js';
+
 class App extends React.Component {
   addTrack() {
     console.log('AddTrack', this.trackInput.value);
@@ -22,6 +24,9 @@ class App extends React.Component {
         <div>
           <input type="text" className="playlist__input" placeholder="Введите название трека" ref={(input) => { this.searchInput = input }}/>
           <input type="button" className="playlist__btn-add" value="Find track" onClick={this.findTrack.bind(this)}/>
+        </div>
+        <div>
+          <button onClick={this.props.onGetTracks}>Get Tracks</button>
         </div>
         <ul className="playlist__list">
           {
@@ -49,6 +54,9 @@ export default connect(
     },
     onFindTrack: (name) => {
       dispatch({ type: 'FIND_TRACK', payload: name })
+    },
+    onGetTracks: () => {
+      dispatch(getTracks());
     }
 
   })

@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
 import './index.scss';
 import reducer from './reducers';
 
-//  __REDUX_DEVTOOLS_EXTENSION__  для работы отладчика Redux
-const store = new createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// //  __REDUX_DEVTOOLS_EXTENSION__  для работы отладчика Redux
+// const store = new createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+// Подключение middleware для написания асинхронных экшенов
+const store = new createStore(reducer,composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
