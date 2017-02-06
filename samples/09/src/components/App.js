@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import {getTracks} from '../actions/tracks.js';
 
+import Menu from './menu';
+
 class App extends React.Component {
   addTrack() {
     console.log('AddTrack', this.trackInput.value);
@@ -17,6 +19,9 @@ class App extends React.Component {
     return (
       <div className="playlist">
         <h1>Hello, {this.props.name}</h1>
+        <div>
+          <Menu/>
+        </div>
         <div>
           <input type="text" className="playlist__input" placeholder="Введите название трека" ref={(input) => { this.trackInput = input }}/>
           <input type="button" className="playlist__btn-add" value="Add track"  onClick={this.addTrack.bind(this)}/>
