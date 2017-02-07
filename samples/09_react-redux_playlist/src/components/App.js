@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router';
 
 import {getTracks} from '../actions/tracks.js';
 
@@ -16,6 +17,7 @@ class App extends React.Component {
     this.props.onFindTrack(this.searchInput.value);
   }
   render() {
+    console.log('asdfsdaf', this.props.ownProps);
     return (
       <div className="playlist">
         <h1>Hello, {this.props.name}</h1>
@@ -36,7 +38,13 @@ class App extends React.Component {
         <ul className="playlist__list">
           {
             this.props.tracks.map((track,index) => {
-              return <li key={index}>{track.name}</li>;
+              return (
+                <li key={index}>
+                  <Link to={`/tracks/${track.id}`}>
+                    {track.name}
+                  </Link>
+                </li>
+              );
             })
           }
         </ul>
@@ -46,8 +54,9 @@ class App extends React.Component {
 }
 
 export default connect(
-  state => ({
-    tracks: state.tracks.filter(track => track.name.includes(state.filterTracks))
+  (state, ownProps) => ({
+    tracks: state.tracks.filter(track => track.name.includes(state.filterTracks)),
+    ownProps
   }),
   dispatch => ({
     onAddTrack: (name) => {
