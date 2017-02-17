@@ -1,10 +1,4 @@
-const initialState = [
-  {
-    id: 1234,
-    name: "my super track"
-  }
-
-];
+const initialState = [];
 
 
 export default function tracks(state = initialState, action) {
